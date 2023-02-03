@@ -3,34 +3,36 @@ import githubApi from "./api.js";
 //const BASE_URL = "https://api.github.com/users/aogles";
 //const avatar = "aogles";
 
-function generateHTML(githubApi) {
-  console.log(githubApi);
-  const source = document.querySelector("#github-template").innerHTML;
+function generateProfileHTML(data) {
+  console.log(data);
+  const source = document.querySelector("#profile-template").innerHTML;
   const template = Handlebars.compile(source);
-
-  const html = template(githubApi);
+  const html = template(data);
   document
     .querySelector(".profile-section")
     .insertAdjacentHTML("afterbegin", html);
 }
 
-function generateOrgsHTML(githubApi) {
-  console.log(githubApi);
-  const source = document.querySelector("#github-template").innerHTML;
-  const template = Handlebars.compile(source);
+function generateOrgsHTML(data) {
+  console.log(data);
+  // const source = document.querySelector("#org-template").innerHTML;
+  // const template = Handlebars.compile(source);
 
-  const html = template(githubApi);
-  document
-    .querySelector("#github-template")
-    .insertAdjacentHTML("afterbegin", html);
+  // const html = template(data);
+  // document
+  //   .querySelector("#github-template")
+  //   .insertAdjacentHTML("afterbegin", html);
 }
 
-function generateRepoHTML(githubApi) {
-  console.log(githubApi);
+function generateRepoHTML(data) {
+  console.log(data);
+  const repoData = { repos: data };
+  console.log(repoData);
   const source = document.querySelector("#repo-template").innerHTML;
   const template = Handlebars.compile(source);
 
-  const html = template(githubApi);
+  const html = template(repoData);
+  console.log({ html });
   document
     .querySelector(".repo-section")
     .insertAdjacentHTML("afterbegin", html);
@@ -40,8 +42,8 @@ fetch(`https://api.github.com/users/aogles`)
   .then(function (response) {
     return response.json();
   })
-  .then(function (githubApi) {
-    generateHTML(githubApi);
+  .then(function (data) {
+    generateProfileHTML(data);
     //console.log(githubApi);
   });
 
@@ -50,17 +52,17 @@ fetch(`https://api.github.com/users/aogles/orgs`)
     console.log(response);
     return response.json();
   })
-  .then(function (githubApi) {
-    generateOrgsHTML(githubApi);
+  .then(function (data) {
+    generateOrgsHTML(data);
     //console.log(githubApi);
   });
 
 fetch(`https://api.github.com/users/aogles/repos`)
   .then(function (response) {
-    //console.log(response);
+    console.log(response);
     return response.json();
   })
-  .then(function (githubApi) {
-    generateRepoHTML(githubApi);
+  .then(function (data) {
+    generateRepoHTML(data);
     //console.log(githubApi);
   });

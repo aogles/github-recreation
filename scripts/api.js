@@ -1,4 +1,4 @@
-const githubApi = {
+const data = {
   login: "aogles",
   id: 119542673,
   node_id: "U_kgDOByATkQ",
@@ -32,4 +32,4 @@ const githubApi = {
   created_at: "2022-11-30T22:14:02Z",
   updated_at: "2023-01-04T17:23:48Z",
 };
-export default githubApi;
+export default data;
