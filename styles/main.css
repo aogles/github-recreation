@@ -1,0 +1,20 @@
+body {
+    background-color: black;
+}
+hr {
+    color: white;
+}
+
+.card-img-top{
+    border-radius: 50%;
+}
+
+.repo-card{
+    height: 75px;
+    margin: 5px;
+    color: cornflowerblue;
+}
+
+.repo-card p {
+    color: white;
+}
