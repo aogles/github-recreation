@@ -25,14 +25,15 @@
 
     <script id="profile-template" type="text/x-handlebars-template">
       <div class="entry">
-        <div class="card" style="width:300px">
+        <div class="profile-card" style="width:300px">
           <img src="{{avatar_url}}" class="card-img-top" alt="..." />
           <div class="card-body">
             <h2 class="card-title">{{login}}</h2>
             <a href="#" class="btn btn-primary">Edit profile</a>
-            <p>{{followers}} follower</p>
-            <p>{{following}} followers</p>
+            <p> 👥 {{followers}} follower · {{following}} followers</p>
+
             <hr />
+            <p>Organizations</p>
             <img
               src="https://avatars.githubusercontent.com/u/121811161?s=64&amp;v=4"
               alt="@ccs-winter-2023"
@@ -52,7 +53,8 @@
         <hr />
         <div class="repo-card">{{name}}
           {{visibility}}
-          <p>{{language}} Updated 2 hours ago</p>
+
+          <p>● {{language}} Updated 2 hours ago</p>
         </div>
         <hr />
         <div class="card-body"></div>
